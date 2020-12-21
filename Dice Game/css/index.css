@@ -1,0 +1,183 @@
+html, body { 
+    --color-1: #a8e6cf;
+    --color-2: #dcedc1; 
+    --color-3: #ffd3b6; 
+    --color-4: #ffaaa5; 
+    --color-5: #ff8b94;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding-top: 50px;
+    background-image: linear-gradient(135deg, var(--color-1) , var(--color-2));
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    color: black;
+}
+
+#game-title {
+    text-align: center;
+    color: white;
+    font-size: 5rem;
+    font-weight: 900;
+}
+
+.rules {
+    text-align: center;
+    margin-top: 3em;
+    font-size: 1rem;
+    border: red 1px solid;
+}
+
+.container {
+    width: 50%;
+    max-width: 400px;
+    text-align: center;
+    margin: 0 auto;
+    background-color: white;
+    box-shadow: -2px 6px 18px 3px rgba(0,0,0,0.5);
+    padding: 2em;
+}
+
+.players {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.player-title {
+    margin: 1em 0 0;
+    font-size: 1.5rem;
+    text-decoration: underline;
+}
+
+.score {
+    margin: 0 .25em 1.5em;
+    font-size: 2rem;
+}
+
+.dice {
+    border-radius: 10px;
+    width: 1.25em;
+    height: 1.25em;
+    background-color: var(--color-3);
+    margin: 0 auto;
+    font-size: 5rem;
+    display: block;
+    align-items: center;
+    justify-content: center;
+}
+
+/* -----------BUTTON STUFF--------- */
+
+button {
+    color: #fff;
+    padding: 20px 30px;
+    font-size: 20px;
+    font-weight: 900;
+    margin: 10px auto;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#rollBtn {
+    background-color: var(--color-5);
+    transform: scale(1);
+    transition: transform 250ms;
+}
+
+#resetBtn {
+    background-color: var(--color-4);
+    transform: scale(1);
+    transition: transform 250ms;
+}
+
+button:focus {
+    outline: none;
+}
+
+#rollBtn:hover {
+    background-color: var(--color-4);
+    transform: scale(1.1);
+}
+
+#resetBtn:hover {
+    background-color: var(--color-5);
+    transform: scale(1.1);
+}
+
+#stayBtn {
+    display: block;
+    background-color: var(--color-1)
+}
+
+#stayBtn:hover {
+    background-color: var(--color-2);
+    transform: scale(1.1);
+}
+
+#resetBtn {
+    display: none;
+}
+
+
+/* ------ !!!Dice Animations!!! -------  */
+
+.dice-icon-container {
+    margin-top: 40px;
+}
+
+@keyframes diceMoveRight {
+    0% {right: 25%;}
+    100% {right: -25%;}
+}
+
+@keyframes diceMoveLeft {
+    0% {right: -25%;}
+    100% {right: 25%;}
+}
+
+.dice-icon-right {
+    position: relative;
+    animation-name: diceMoveRight;
+    animation-duration: 1s;
+    right: -25%;
+}
+
+.dice-icon-left {
+    position: relative;
+    animation-name: diceMoveLeft;
+    animation-duration: 1s;
+    right: 25%;
+}
+
+.active {
+    animation: boxShadow 1s;
+    box-shadow: -2px 6px 18px 3px rgba(0,0,0,0.5);
+}
+
+@keyframes boxShadow {
+    0% {box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);}
+    100% {box-shadow: -2px 6px 18px 3px rgba(0,0,0,0.50);}
+}
+
+.shake-dice {
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+
+}
